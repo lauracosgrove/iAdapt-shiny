@@ -1,0 +1,13 @@
+name: iAdapt-shiny
+title: iAdapt-shiny
+username:
+account: mimicroc
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 1181591
+bundleId: 2586430
+url: https://mimicroc.shinyapps.io/iAdapt-shiny/
+when: 1573661126.55868
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Implementation_example.Rmd|implementation.html
