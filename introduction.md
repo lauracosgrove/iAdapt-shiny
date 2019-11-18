@@ -21,6 +21,14 @@ This design is relevant in the face of a non-monotonous dose-response relationsh
 
 Often, dose-finding designs rely on a monotone dose-response curve, meaning that as dose increases, we expect the drug's effectiveness to increase too. This is a convenient assumption, though not always accurate. Instead, a relationship may exist in which case some dose-escalation designs may falsely move a higher dose forward.
 
+## How to use 
+
+1. Start at the __Simulation__ tab to simulate a single trial and explore parameter variations.
+
+2. After simulating one trial, use the **Repeated Simulation** tab to examine the design's operating characteristics.
+
+3. See **Implementation** for a vignette about how to use the iAdapt package to run this trial design in practice.
+
 ## References
 
 [Chiuzan, C., Garrett-Mayer, E., & Nishimura, M. I. (2018). An Adaptive Dose-Finding Design Based on Both Safety and Immunologic Responses in Cancer Clinical Trials. Statistics in Biopharmaceutical Research, 10(3), 185–195.](https://doi.org/10.1080/19466315.2018.1462727)

@@ -5,9 +5,9 @@ account: mimicroc
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 1181591
-bundleId: 2599076
+bundleId: 2599092
 url: https://mimicroc.shinyapps.io/iAdapt-shiny/
-when: 1574119815.04717
+when: 1574120404.84854
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: 2013-10-15_Blume.2002.LikelihoodInference.pdf|Clin Trials-2014-Chiuzan-1740774514555585.pdf|Implementation_example.Rmd|implementation.html|introduction.html

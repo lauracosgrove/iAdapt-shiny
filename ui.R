@@ -230,6 +230,7 @@ shinyUI(fluidPage(
                    max = 1000,
                    step = 50,
                    value = 100),
+      helpText("Before conducting repeated simulations, specify a design in the Simulation tab."),
       #Simulate n times
       actionButton("repeated", "Simulate n times")
     ),
