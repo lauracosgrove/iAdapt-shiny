@@ -12,6 +12,7 @@ library(tidyverse)
 library(plotly)
 library(DT)
 library(shinydashboard)
+library(shinybusy)
 
 # example: data management
 #load("x")
@@ -25,7 +26,10 @@ shinyUI(fluidPage(
   # Application title
   titlePanel("iAdapt Dose-Finding for Early-Phase Clinical Trials"),
     tabsetPanel(type = "pills",
-      tabPanel("Simulation",
+     tabPanel("Introduction", fluidPage(    
+                         includeMarkdown("introduction.md"))
+                ),      
+     tabPanel("Simulation",
           fluidPage(
              fluidRow(
              column(width = 4,
@@ -165,7 +169,7 @@ shinyUI(fluidPage(
                        max = 32,
                        step = 1,
                        value = 2),
-          helpText("Recommended values are 2, 4, or 8 for small sample sizes (Reference)."),
+          helpText("Recommended values are 2, 4, or 8 for small sample sizes (Blume, 2002)."),
           
           #Cohort size used in stage 1: 
           numericInput("coh.size",
@@ -219,6 +223,7 @@ shinyUI(fluidPage(
         ), #end tab panel
         tabPanel("Repeated simulation",
     wellPanel(
+      add_busy_spinner(spin = "fading-circle"),
       numericInput("sims",
                    h4("Number of repeated simulations:"),
                    min = 1,
@@ -228,15 +233,15 @@ shinyUI(fluidPage(
       #Simulate n times
       actionButton("repeated", "Simulate n times")
     ),
-      h4("Summary Statistics of Simulated Trials"),
+    column(width = 8, h4("Summary Statistics of Simulated Trials"),
       h6("Percent allocation per dose"),
       DT::dataTableOutput("sim_treated"),
       h6("Estimated efficacy outcomes by dose"),
-      DT::dataTableOutput("sim_eff")
+      DT::dataTableOutput("sim_eff"))
     ),
    tabPanel("Implementation"
-            ,
-   includeMarkdown("Implementation_example.md")
+            ,fluidPage(    
+   includeMarkdown("Implementation_example.md"))
     )
   )
 )
