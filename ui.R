@@ -136,7 +136,7 @@ shinyUI(fluidPage(
                 numericInput("v", h4("True Variance of Efficacies:"),
                              min = 0, max = 1, value = 0.01,
                              step = 0.01),
-                helpText("Note: Variance is assumed uniform")
+                helpText("Note: Variance across doses is assumed to be uniform")
                 ) #end of selector panel
               ), #end of col
     #show what you selected
@@ -181,7 +181,7 @@ shinyUI(fluidPage(
         )
         ), #end of column
       column(width = 4,
-        h4("Simulated Toxicity Profile"), 
+        h4("Safety Assessment Based on Observed/Simulated Toxicity"), 
         DT::dataTableOutput("dt_tox"),
         h6("Doses are considered safe if the likelihood ratio is greater than 1/k (colored green).")
       ) #end of column
@@ -204,7 +204,7 @@ shinyUI(fluidPage(
                        max = 10,
                        step = 1,
                        value = 9),
-          helpText("This stop rule determines after how many patients the stage 1 trial should be stopped, if dose 1 is shown to be toxic."),
+          helpText("This stop rule determines after how many patients the stage 1 trial should be stopped early, if dose 1 is shown to be unsafe."),
           #Update Button
           actionButton("update", "Simulate!")
         )

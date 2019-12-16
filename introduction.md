@@ -1,31 +1,27 @@
 
 ## Overview
 
-This shiny app provides interactive simulation based on the early phase trial design by Chiuzan et al. (2018). Simulation and implementation functions are implemented in Stage 1 is safety-driven dose-escalation, and Stage 2 employs efficacy-driven randomization while continuing to monitor dose safety.
+This shiny app provides interactive simulation based on the early phase trial design by Chiuzan et al. (2018). Simulation and implementation functions are implemented. Stage 1 is safety-driven dose-escalation, and Stage 2 employs efficacy-driven randomization while continuing to monitor dose safety.
 
-The design uses a likelihood paradigm, rather than rules. e.g. In Stage 1, when the likelihood ratio for a dose is greater than a prespecified threshold, the dose is considered acceptably safe and subsequent patients are enrolled on the next dose level. Conversely, if the likelihood ratio is less than or equal to the threshold, escalation is stopped.
+The design uses a likelihood paradigm rather than algorithmic rules to assess safety. For example, in Stage 1, when the likelihood ratio for a dose is greater than a prespecified threshold, the dose is considered acceptably safe and subsequent patients are enrolled on the next dose level. Conversely, if the likelihood ratio is less than or equal to the threshold, escalation is stopped.
 
-One hallmark of this design is its ability to identify the most effective dose in the presence of a non-monotone dose-response curve - a phenomenon common in immunotherapies. Additionally, it follows a frequentist framework, but allows for adaptive design components.
+One hallmark of this design is its ability to use both toxicity (binary endpoint) and efficacy information (continuous endpoint) in finding the optimal dose that has an acceptable toxicity with promising efficacy. Additionally, it is implemented in a frequentist framework, but allows for adaptive design components.
 
 The function of this software is two-fold:
 
-* Produce trial outcomes through simulation for an inputted scenario, and
+*	Produce operating characteristics through simulations for an inputted scenario, and
 
-* Implement the design in a real trial.
+*	Provide guidance on how to run a real trial, ie., assess safety and allocate the next dose.
 
 ## Background
 
 This design is relevant in the face of a non-monotonous dose-response relationship - a phenomenon that most often seen in immunologic therapies. Additionally, the probabilistic nature (as opposed to rule-based) provides an advantage in identifying the optimal dose to carry forward in development, by allowing more than one dose to be examined for efficacy.
 
-## Dose-response relationship
-
-Often, dose-finding designs rely on a monotone dose-response curve, meaning that as dose increases, we expect the drug's effectiveness to increase too. This is a convenient assumption, though not always accurate. Instead, a relationship may exist in which case some dose-escalation designs may falsely move a higher dose forward.
-
 ## How to use 
 
-1. Start at the __Simulation__ tab to simulate a single trial and explore parameter variations.
+1. Start at the __Simulation__ tab to simulate a single trial and explore the feasibility of scenarios.
 
-2. After simulating one trial, use the **Repeated Simulation** tab to examine the design's operating characteristics.
+2. After simulating one trial, use the **Repeated Simulation** tab to examine the design's operating characteristics in repeated trials (100, 1000, etc.)
 
 3. See **Implementation** for a vignette about how to use the iAdapt package to run this trial design in practice.
 

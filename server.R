@@ -11,8 +11,8 @@ library(shiny)
 library(tidyverse)
 library(plotly)
 library(DT)
-library(iAdapt)
 library(here)
+library(iAdapt)
 
 #################################################
 # Define server logic 
@@ -83,8 +83,7 @@ shinyServer(function(input, output, session) {
   }, ignoreNULL = FALSE)
   
  sim <- eventReactive(input$repeated, {
-    set.seed(seed())
-    simulations <- sim.trials(numsims = input$sims, #change this to select 
+    simulations <- sim.trials(numsims = input$sims, 
                dose = input$dose, 
                dose.tox = dose.tox(),
                p1 = input$p_no, p2 = input$p_yes, K = input$K, coh.size = input$coh.size,
